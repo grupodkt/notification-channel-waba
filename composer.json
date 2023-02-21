@@ -1,0 +1,42 @@
+{
+    "name": "grupodkt/notification-channel-waba",
+    "description": "Notification channel WABA.",
+    "homepage": "https://github.com/grupodkt/laravel-notification-channel-waba",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Echeverria",
+            "email": "lecheverria@grupodkt.com",
+            "homepage": "https://github.com/grupodkt",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/notifications": "5.8.*",
+        "illuminate/support": "5.8.*",
+        "illuminate/events": "5.8.*",
+        "illuminate/queue": "5.8.*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotificationChannels\\Waba\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotificationChannels\\Waba\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
