@@ -78,7 +78,8 @@ class Waba
 
         if($message->type == "document"){
             $params += ['type' => $message->type];
-            $params += ['document' => ['link' => trim($message->content), 'caption' => $message->caption]];
+            $params += ['document' => ['link' => trim($message->content), 'filename' => $message->filename,
+                'caption' => $message->caption]];
         }
 
         if($message->type == "template"){

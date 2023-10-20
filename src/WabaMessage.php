@@ -53,6 +53,13 @@ class WabaMessage
     public $method;
 
     /**
+     * The waba filename. (optional)
+     *
+     * @var string
+     */
+    public $filename;
+
+    /**
      * The waba caption. (optional)
      *
      * @var string
@@ -157,6 +164,16 @@ class WabaMessage
     public function method($method)
     {
         $this->method = $method;
+    }
+
+    /**
+     * Set the waba caption.
+     *
+     * @param  string $caption
+     */
+    public function filename($filename = 'Sin título')
+    {
+        $this->filename = $filename;
     }
 
     /**
