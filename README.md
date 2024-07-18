@@ -1,10 +1,19 @@
 # Waba notifications channel for Laravel 5.4+
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/waba/notification-channel-waba.svg?style=flat-square)](https://packagist.org/packages/waba/notification-channel-waba)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/waba/notification-channel-waba.svg?style=flat-square)](https://packagist.org/packages/grupodkt/notification-channel-waba)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/grupodkt/laravel-notification-channel-waba.svg?style=flat-square)](https://packagist.org/packages/waba/notification-channel-waba)
+[![Total Downloads](https://img.shields.io/packagist/dt/grupodkt/laravel-notification-channel-waba.svg?style=flat-square)](https://packagist.org/packages/grupodkt/notification-channel-waba)
 
 This package makes it easy to send [Waba notifications] with Laravel 5.4.
+
+## Installation
+
+| Package Version | Laravel Version | Guzzle Version |
+| --------------- | --------------- | -------------- |
+| 5.x             | 5               | 6              |
+| 5.x             | 6               | 7              |
+| 5.x             | 7,8,9           | 6, 7           |
+
 
 ## Contents
 - [Usage](#usage)
