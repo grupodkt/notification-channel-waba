@@ -27,8 +27,8 @@ class WabaChannel
      */
     public function __construct(Waba $waba, Dispatcher $events)
     {
-        $this->waba    = $waba;
-        $this->events  = $events;
+        $this->waba   = $waba;
+        $this->events = $events;
     }
 
     /**

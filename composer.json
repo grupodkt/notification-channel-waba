@@ -13,28 +13,16 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "illuminate/notifications": "^7|^8|^9|^10",
-        "illuminate/support": "^7|^8|^9|^10",
-        "illuminate/events": "^7|^8|^9|^10",
-        "illuminate/queue": "^7|^8|^9|^10",
+        "illuminate/notifications": "^6|^7|^8|^9|^10",
+        "illuminate/support": "^6|^7|^8|^9|^10",
+        "illuminate/events": "^6|^7|^8|^9|^10",
+        "illuminate/queue": "^6|^7|^8|^9|^10",
         "guzzlehttp/guzzle": "^6|^7"
-    },
-    "require-dev": {
-        "mockery/mockery": "^0.9.5",
-        "phpunit/phpunit": "4.*"
     },
     "autoload": {
         "psr-4": {
             "NotificationChannels\\Waba\\": "src"
         }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "NotificationChannels\\Waba\\Test\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true

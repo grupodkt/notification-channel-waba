@@ -50,44 +50,44 @@ class Waba
         $url           = trim($url);
         $token         = trim($token);
         $phoneNumberId = trim($phoneNumberId);
-        $params = [
+        $params        = [
             'messaging_product' => "whatsapp",
             'recipient_type'    => "individual",
             'to'                => $to,
         ];
 
-        if($message->type == "text"){
+        if ($message->type == "text") {
             $params += ['type' => $message->type];
             $params += ['text' => ['preview_url' => false, 'body' => trim($message->content)]];
         }
 
-        if($message->type == "image"){
+        if ($message->type == "image") {
             $params += ['type' => $message->type];
             $params += ['image' => ['link' => trim($message->content)]];
         }
 
-        if($message->type == "audio"){
+        if ($message->type == "audio") {
             $params += ['type' => $message->type];
             $params += ['audio' => ['link' => trim($message->content)]];
         }
 
-        if($message->type == "video"){
+        if ($message->type == "video") {
             $params += ['type' => $message->type];
             $params += ['video' => ['link' => trim($message->content), 'caption' => $message->caption]];
         }
 
-        if($message->type == "document"){
+        if ($message->type == "document") {
             $params += ['type' => $message->type];
             $params += ['document' => ['link' => trim($message->content), 'filename' => $message->filename,
-                'caption' => $message->caption]];
+                'caption'                         => $message->caption]];
         }
 
-        if($message->type == "template"){
+        if ($message->type == "template") {
             $params += ['type' => $message->type];
             $params += ['template' => $message->template];
         }
 
-        if($message->type == "interactive"){
+        if ($message->type == "interactive") {
             $params += ['type' => $message->type];
             $params += ['interactive' => $message->interactive];
         }
@@ -98,13 +98,13 @@ class Waba
                 case 'messages':
                     $response = $cliente->request(
                         'POST',
-                        $url .$phoneNumberId. "/messages", [
+                        $url . $phoneNumberId . "/messages", [
                             'form_params' => $params,
-                            'headers'   => [
-                                'Content-Type' => 'application/json',
-                                'Authorization' => 'Bearer '.$token,
+                            'headers'     => [
+                                'Content-Type'  => 'application/json',
+                                'Authorization' => 'Bearer ' . $token,
                             ],
-                            'timeout' => 25
+                            'timeout'     => 25,
                         ]);
                     break;
             }
