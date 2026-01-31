@@ -56,39 +56,42 @@ class Waba
             'to'                => $to,
         ];
 
-        if ($message->type == "text") {
-            $params += ['type' => $message->type];
+        // Si type está vacío o es null, usar "text" por defecto
+        $messageType = $message->type ?: 'text';
+
+        if ($messageType == "text") {
+            $params += ['type' => 'text'];
             $params += ['text' => ['preview_url' => false, 'body' => trim($message->content)]];
         }
 
-        if ($message->type == "image") {
-            $params += ['type' => $message->type];
+        if ($messageType == "image") {
+            $params += ['type' => 'image'];
             $params += ['image' => ['link' => trim($message->content)]];
         }
 
-        if ($message->type == "audio") {
-            $params += ['type' => $message->type];
+        if ($messageType == "audio") {
+            $params += ['type' => 'audio'];
             $params += ['audio' => ['link' => trim($message->content)]];
         }
 
-        if ($message->type == "video") {
-            $params += ['type' => $message->type];
+        if ($messageType == "video") {
+            $params += ['type' => 'video'];
             $params += ['video' => ['link' => trim($message->content), 'caption' => $message->caption]];
         }
 
-        if ($message->type == "document") {
-            $params += ['type' => $message->type];
+        if ($messageType == "document") {
+            $params += ['type' => 'document'];
             $params += ['document' => ['link' => trim($message->content), 'filename' => $message->filename,
                 'caption'                         => $message->caption]];
         }
 
-        if ($message->type == "template") {
-            $params += ['type' => $message->type];
+        if ($messageType == "template") {
+            $params += ['type' => 'template'];
             $params += ['template' => $message->template];
         }
 
-        if ($message->type == "interactive") {
-            $params += ['type' => $message->type];
+        if ($messageType == "interactive") {
+            $params += ['type' => 'interactive'];
             $params += ['interactive' => $message->interactive];
         }
 
@@ -99,9 +102,8 @@ class Waba
                     $response = $cliente->request(
                         'POST',
                         $url . $phoneNumberId . "/messages", [
-                            'form_params' => $params,
+                            'json' => $params,
                             'headers'     => [
-                                'Content-Type'  => 'application/json',
                                 'Authorization' => 'Bearer ' . $token,
                             ],
                             'timeout'     => 25,
@@ -110,6 +112,7 @@ class Waba
             }
             $html = (string) $response->getBody();
         } catch (RequestException $e) {
+            \Log::error("WABA error: " . $e->getMessage());
             if ($e->hasResponse()) {
                 throw CouldNotSendNotification::errorSending(Psr7\str($e->getResponse()));
             }
