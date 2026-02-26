@@ -66,17 +66,44 @@ class Waba
 
         if ($messageType == "image") {
             $params += ['type' => 'image'];
-            $params += ['image' => ['link' => trim($message->content)]];
+
+            $imageData = [
+                'link' => trim($message->content)
+            ];
+
+            if (!empty($message->caption)) {
+                $imageData['caption'] = $message->caption;
+            }
+
+            $params += ['image' => $imageData];
         }
 
         if ($messageType == "audio") {
             $params += ['type' => 'audio'];
-            $params += ['audio' => ['link' => trim($message->content)]];
+
+            $audioData = [
+                'link' => trim($message->content)
+            ];
+
+            if (!empty($message->caption)) {
+                $audioData['caption'] = $message->caption;
+            }
+
+            $params += ['audio' => $audioData];
         }
 
         if ($messageType == "video") {
             $params += ['type' => 'video'];
-            $params += ['video' => ['link' => trim($message->content), 'caption' => $message->caption]];
+
+            $videoData = [
+                'link' => trim($message->content)
+            ];
+
+            if (!empty($message->caption)) {
+                $videoData['caption'] = $message->caption;
+            }
+
+            $params += ['video' => $videoData];
         }
 
         if ($messageType == "document") {
